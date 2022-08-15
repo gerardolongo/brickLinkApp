@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl: "https://cors-anywhere.herokuapp.com/https://bricklinkapi.herokuapp.com"
+    apiUrl: "https://bricklinkapi.herokuapp.com"
 };
 
 /*

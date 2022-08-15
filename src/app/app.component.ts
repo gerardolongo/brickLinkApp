@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../environments/environment";
 
 @Component({
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit{
         this.submitted = true;
         this.result = '';
         //this.form.disable();
-        this.http.get(this.API_URL + '/bricklink/' + this.numItem, { responseType: 'text' })
+        this.http.get('/bricklink/' + this.numItem, { responseType: 'text' })
             .subscribe(result => {
                 this.submitted = false;
                 this.result = result;

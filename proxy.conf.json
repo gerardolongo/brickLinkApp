@@ -1,0 +1,11 @@
+{
+  "/bricklink/*": {
+    "target": "https://bricklinkapi.herokuapp.com",
+    "secure": true,
+    "changeOrigin": "true",
+    "logLevel": "debug",
+    "headers": {
+      "Connection": "keep-alive"
+    }
+  }
+}
