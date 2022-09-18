@@ -1,7 +1,7 @@
 {
   "/bricklink/*": {
-    "target": "https://bricklinkapi.herokuapp.com/",
-    "secure": true,
+    "target": "https://bricklinkapi.herokuapp.com",
+    "secure": false,
     "changeOrigin": "true",
     "logLevel": "debug"
   }

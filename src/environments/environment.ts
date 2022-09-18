@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    apiUrl: "https://bricklinkapi.herokuapp.com"
+    apiUrl: "http://localhost:5000"
+    //apiUrl: "https://bricklinkapi.herokuapp.com"
 };
 
 /*

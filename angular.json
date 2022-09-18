@@ -71,14 +71,17 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "brickLinkApp:build"
+            "browserTarget": "brickLinkApp:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "brickLinkApp:build:production"
+              "browserTarget": "brickLinkApp:build:production",
+              "proxyConfig": "proxy.conf.json"
             },
             "development": {
-              "browserTarget": "brickLinkApp:build:development"
+              "browserTarget": "brickLinkApp:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
