@@ -1,6 +1,6 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
     submitted: boolean = false;
     API_URL = environment.apiUrl;
 
-    constructor(private http: HttpClient,
+    constructor(protected httpClient: HttpClient,
                 private formBuilder: FormBuilder) {
 
         this.form = this.formBuilder.group({
@@ -34,12 +34,10 @@ export class AppComponent implements OnInit{
         this.submitted = true;
         this.result = '';
         //this.form.disable();
-        this.http.get('/bricklink/' + this.numItem, { responseType: 'text' })
-            .subscribe(result => {
-                this.submitted = false;
-                this.result = result;
-            }, error => {
-                this.submitted = false;
-            });
+       this.httpClient.get(`${ environment.apiUrl }/bricklink/${this.numItem}`, { responseType: 'text' })
+       .subscribe(result => {
+            this.submitted = false;
+            this.result = result;
+        }, err => this.submitted = false);
     }
 }
