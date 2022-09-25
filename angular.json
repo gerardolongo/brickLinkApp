@@ -76,12 +76,10 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "brickLinkApp:build:production",
-              "proxyConfig": "proxy.conf.json"
+              "browserTarget": "brickLinkApp:build:production"
             },
             "development": {
-              "browserTarget": "brickLinkApp:build:development",
-              "proxyConfig": "proxy.conf.json"
+              "browserTarget": "brickLinkApp:build:development"
             }
           },
           "defaultConfiguration": "development"
