@@ -34,7 +34,7 @@ export class AppComponent implements OnInit{
         this.submitted = true;
         this.result = '';
         //this.form.disable();
-       this.httpClient.get(`/bricklink/${this.numItem}`, { responseType: 'text' })
+       this.httpClient.get(`${environment.apiUrl}/bricklink/${this.numItem}`, { responseType: 'text' })
        .subscribe(result => {
             this.submitted = false;
             this.result = result;
