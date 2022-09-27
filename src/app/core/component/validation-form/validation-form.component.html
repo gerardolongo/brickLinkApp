@@ -1,0 +1,24 @@
+<form class="block" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="field">
+        <label class="label">Numero oggetto</label>
+        <div class="control">
+            <input class="input" type="text" formControlName="numItem" required  [ngClass]="submitted && f['numItem'].errors ? 'input is-danger' : 'input'">
+            <div *ngIf="submitted && f['numItem'].errors" class="invalid-feedback">
+                <label class="help is-danger" *ngIf="f['numItem'].errors['required']">{{'Inserire il numero oggetto'}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="field is-grouped">
+        <div class="control">
+            <button class="button is-info">Invia</button>
+        </div>
+    </div>
+
+    <progress class="progress is-info" max="100" *ngIf="isLoading"></progress>
+
+    <div class="box xml-container" *ngIf="result">
+        {{text}}
+    </div>
+
+</form>
+
