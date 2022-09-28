@@ -16,4 +16,8 @@ export class BrickLinkService {
     getResource(numItem: string) : Observable<any> {
         return this.httpClient.get(`${environment.apiUrl}/bricklink/${numItem}`, {responseType: 'text'})
     }
+
+    downloadFile(numItem: string): Observable<any> {
+        return this.httpClient.get(`${environment.apiUrl}/bricklink/${numItem}`, {responseType: 'blob'})
+    }
 }

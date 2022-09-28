@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {BrickLinkService} from "../../service/brickLinkService";
+import {saveAs} from "file-saver";
 
 @Component({
     selector: 'validation-form',
@@ -22,15 +23,20 @@ export class ValidationFormComponent implements OnInit {
         });
     }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {
+    }
 
     get f() {
         return this.form.controls;
     }
 
-    get numItem() { return this.form.get('numItem')?.value; }
+    get numItem() {
+        return this.form.get('numItem')?.value;
+    }
 
-    get text() { return this.form.get('text')?.value; }
+    get text() {
+        return this.form.get('text')?.value;
+    }
 
     onSubmit(): void {
         this.submitted = true;
@@ -40,9 +46,8 @@ export class ValidationFormComponent implements OnInit {
         }
         this.isLoading = true;
         this.brickLinkService.getResource(this.numItem)
-            .subscribe( {
+            .subscribe({
                     next: (result) => {
-                        this.form.reset('numItem')
                         this.submitted = false;
                         this.isLoading = false;
                         this.result = result;
@@ -54,6 +59,21 @@ export class ValidationFormComponent implements OnInit {
                     },
                 }
             );
+    }
+
+    downloadDocument() {
+        this.isLoading = true;
+        this.brickLinkService.downloadFile(this.numItem)
+            .subscribe({
+                next: (data) => {
+                    this.isLoading = false;
+                    this.result = '';
+                    saveAs(data, "brickLink.xml")
+                },
+                error: (e) => {
+                    this.isLoading = false;
+                },
+            });
     }
 
 }
